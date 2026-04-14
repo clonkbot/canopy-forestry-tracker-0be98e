@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #1a2e1a;
+  --moss: #3d5a3d;
+  --bark: #5c4033;
+  --cream: #f5f2eb;
+  --gold: #b8860b;
+  --sage: #9caf88;
+  --fern: #4a7c59;
+}
+
+.bg-forest { background-color: var(--forest); }
+.bg-moss { background-color: var(--moss); }
+.bg-bark { background-color: var(--bark); }
+.bg-cream { background-color: var(--cream); }
+.bg-gold { background-color: var(--gold); }
+.bg-sage { background-color: var(--sage); }
+.bg-fern { background-color: var(--fern); }
+
+.text-forest { color: var(--forest); }
+.text-moss { color: var(--moss); }
+.text-bark { color: var(--bark); }
+.text-cream { color: var(--cream); }
+.text-gold { color: var(--gold); }
+.text-sage { color: var(--sage); }
+.text-fern { color: var(--fern); }
+
+.border-forest { border-color: var(--forest); }
+.border-moss { border-color: var(--moss); }
+.border-bark { border-color: var(--bark); }
+.border-gold { border-color: var(--gold); }
+.border-sage { border-color: var(--sage); }
+
+/* Topographic background pattern */
+.topo-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath fill='none' stroke='%231a2e1a' stroke-width='1' d='M0 200 Q100 150 200 200 T400 200 M0 180 Q100 130 200 180 T400 180 M0 220 Q100 170 200 220 T400 220 M0 160 Q100 110 200 160 T400 160 M0 240 Q100 190 200 240 T400 240 M0 140 Q100 90 200 140 T400 140 M0 260 Q100 210 200 260 T400 260 M0 120 Q100 70 200 120 T400 120 M0 280 Q100 230 200 280 T400 280 M0 100 Q100 50 200 100 T400 100 M0 300 Q100 250 200 300 T400 300'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Paper texture effect */
+.paper-texture {
+  position: relative;
+}
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Tree growth animation */
+@keyframes grow {
+  0% { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.animate-grow {
+  animation: grow 0.6s ease-out forwards;
+  transform-origin: bottom;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--moss);
+}
+
+/* Input focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* Button hover effect */
+.btn-forest {
+  background-color: var(--forest);
+  transition: all 0.3s ease;
+}
+.btn-forest:hover {
+  background-color: var(--moss);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 46, 26, 0.3);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 46, 26, 0.12);
+}
+
+/* Organic border */
+.organic-border {
+  border-radius: 1rem 2rem 1.5rem 2.5rem;
+}
+
+/* Leaf decoration */
+.leaf-decoration::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233d5a3d'%3E%3Cpath d='M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  opacity: 0.5;
+}
